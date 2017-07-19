@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>js-Lab5-Image Change</title>
+</head>
+
+<body>
+    <script>
+        var index = 0;
+        var duration;
+        function prevImg() {
+            if (index <= 0) {
+                index = 6;
+            }
+            else {
+                index--;
+            }
+            var imgSrc = index + ".jpg";
+            document.images[0].src = imgSrc;
+        }
+
+        function nextImg() {
+            if (index >= 6) {
+                index = 0;
+            }
+            else {
+                index++;
+            }
+            var imgSrc = index + ".jpg";
+            document.images[0].src = imgSrc;
+        }
+
+        function slideShow() {
+            duration = setInterval(function () {
+                if (index >= 6) {
+                    index = 0;
+                }
+                else {
+                    index++;
+                }
+                var imgSrc = index + ".jpg";
+                document.images[0].src = imgSrc;
+            }, "200");
+        }
+
+        function stopInt() {
+            clearInterval(duration);
+        }
+    </script>
+</body>
+<center>
+    <table border="1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    " cellpadding="20" cellspacing="10">
+        <tr>
+            <td align="center">
+                <input type="button" value="<<prev" onclick=prevImg()> </td>
+            <td align="center">
+                <input type="button" value="<<start>>" onclick=slideShow()> </td>
+            <td align="center">
+                <input type="button" value="<<stop>>" onclick=stopInt()> </td>
+            <td align="center">
+                <input type="button" value="next>>" onclick=nextImg()> </td>
+        </tr>
+        <tr>
+            <td colspan="4"> <img src="0.jpg" width="600" height="400"> </td>
+        </tr>
+    </table>
+</center>
+
+</html>
